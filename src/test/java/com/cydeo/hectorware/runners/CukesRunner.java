@@ -16,9 +16,9 @@ import org.junit.runner.RunWith;
 
         },
         features = "src/test/resources/features",
-        glue = "com/cydeo/step_definitions",
-        dryRun = true,
-        tags = "",
+        glue = "com/cydeo/hectorware/step_definitions",
+        dryRun = false,
+        tags = "@contacts",
         publish = true
 )
 public class CukesRunner {
