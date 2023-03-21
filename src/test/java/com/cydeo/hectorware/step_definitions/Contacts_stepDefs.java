@@ -7,7 +7,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -37,7 +36,9 @@ public class Contacts_stepDefs {
     @When("the user enters the username {string}")
     public void the_user_enters_the_username(String newUser) {
 
-        contactsPage.contactFullNameInput.clear();
+        if (!contactsPage.contactFullNameInput.getText().isBlank()) {
+            contactsPage.contactFullNameInput.clear();
+        }
         contactsPage.contactFullNameInput.sendKeys(newUser);
 
     }
@@ -46,6 +47,9 @@ public class Contacts_stepDefs {
     @When("the user enters the phone number {string}")
     public void the_user_enters_the_phone_number(String phoneNumber) {
 
+        if (!contactsPage.phoneInput.getText().isBlank()) {
+            contactsPage.phoneInput.clear();
+        }
         contactsPage.phoneInput.sendKeys(phoneNumber);
 
     }
@@ -54,6 +58,9 @@ public class Contacts_stepDefs {
     @When("the user enters email address {string}")
     public void the_user_enters_email_address(String emailAddress) {
 
+        if (!contactsPage.emailInput.getText().isBlank()) {
+            contactsPage.emailInput.clear();
+        }
         contactsPage.emailInput.sendKeys(emailAddress);
 
     }
@@ -62,6 +69,9 @@ public class Contacts_stepDefs {
     @When("the user enters the post office box {string}")
     public void the_user_enters_the_post_office_box(String postOfficeBox) {
 
+        if (!contactsPage.postOfficeBoxInput.getText().isBlank()) {
+            contactsPage.postOfficeBoxInput.clear();
+        }
         contactsPage.postOfficeBoxInput.sendKeys(postOfficeBox);
 
     }
@@ -70,6 +80,9 @@ public class Contacts_stepDefs {
     @When("the user enters address {string}")
     public void the_user_enters_address(String address) {
 
+        if (!contactsPage.addressBoxInput.getText().isBlank()) {
+            contactsPage.addressBoxInput.clear();
+        }
         contactsPage.addressBoxInput.sendKeys(address);
 
 
@@ -79,31 +92,43 @@ public class Contacts_stepDefs {
     @When("the user enters extended address {string}")
     public void the_user_enters_extended_address(String extendedAddress) {
 
+        if (!contactsPage.extendedAddressBoxInput.getText().isBlank()) {
+            contactsPage.extendedAddressBoxInput.clear();
+        }
         contactsPage.extendedAddressBoxInput.sendKeys(extendedAddress);
 
     }
 
 
     @When("the user enters postal code {string}")
-    public void the_user_enters_postal_code(String extendedAddress) {
+    public void the_user_enters_postal_code(String postalCode) {
 
-        contactsPage.extendedAddressBoxInput.sendKeys(extendedAddress);
-
-    }
-
-
-    @When("the user enters city {string}")
-    public void the_user_enters_city(String postalCode) {
-
+        if (!contactsPage.postalCodeInput.getText().isBlank()) {
+            contactsPage.postalCodeInput.clear();
+        }
         contactsPage.postalCodeInput.sendKeys(postalCode);
 
     }
 
 
-    @When("the user enters state or province {string}")
-    public void the_user_enters_state_or_province(String city) {
+    @When("the user enters city {string}")
+    public void the_user_enters_city(String city) {
 
+        if (!contactsPage.cityInput.getText().isBlank()) {
+            contactsPage.cityInput.clear();
+        }
         contactsPage.cityInput.sendKeys(city);
+
+    }
+
+
+    @When("the user enters state or province {string}")
+    public void the_user_enters_state_or_province(String stateOrProvince) {
+
+        if (!contactsPage.stateInput.getText().isBlank()) {
+            contactsPage.stateInput.clear();
+        }
+        contactsPage.stateInput.sendKeys(stateOrProvince);
 
     }
 
@@ -111,6 +136,9 @@ public class Contacts_stepDefs {
     @When("the user enters country {string}")
     public void the_user_enters_country(String country) {
 
+        if (!contactsPage.countryInput.getText().isBlank()) {
+            contactsPage.countryInput.clear();
+        }
         contactsPage.countryInput.sendKeys(country);
 
     }
@@ -118,6 +146,8 @@ public class Contacts_stepDefs {
 
     @Then("the {string} contact should be created under the list of contacts")
     public void the_contact_should_be_created_under_the_list_of_contacts(String newContactName) {
+
+        contactsPage.getContactsModule("All contacts").click();
 
         List<String> allContacts = new ArrayList<>();
 
@@ -130,6 +160,23 @@ public class Contacts_stepDefs {
 
 
     }
+
+
+    @When("the user clicks on {string} in the contacts list")
+    public void theUserClicksOnInTheContactsList(String newUsername) {
+
+        for (WebElement eachContact : contactsPage.allContacts) {
+
+            if (eachContact.getText().equals(newUsername)) {
+                eachContact.click();
+            }
+
+        }
+
+    }
+
+
+
 
 
 }
