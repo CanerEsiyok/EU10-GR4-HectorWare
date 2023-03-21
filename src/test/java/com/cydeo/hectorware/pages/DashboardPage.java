@@ -12,7 +12,7 @@ public class DashboardPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    //module could be "files", "photos", "activity", "spreed", "mail", "contacts"
+    //module could be "files", "photos", "activity", "spreed", "mail", "contacts", "calendar"
     public WebElement getModule (String module) {
         String xpath = "//ul[@id='appmenu']//li[@data-id='"+module+"']";
         return Driver.getDriver().findElement(By.xpath(xpath));
