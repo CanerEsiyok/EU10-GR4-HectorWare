@@ -9,5 +9,11 @@ public class CalendarPage_Turkan extends DashboardPage {
     @FindBy(xpath="//a[@aria-label='Calendar']")
     public WebElement calendarTab;
 
+    @FindBy(xpath="//button[@aria-label='Actions']")
+    public WebElement gridTab;
+
+    @FindBy(xpath="//span[.='Day']")
+    public WebElement dayOption;
+
 
 }

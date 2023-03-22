@@ -9,3 +9,11 @@ Feature: Calendar functionality
     When the user clicks on the calendar tab
     Then the user verifies the calendar module is displayed
 
+    Scenario: Verify changing the calendar view by day
+      When the user clicks on the calendar tab
+      Then the user clicks on the grid tab
+      And the user selects day option
+      Then daily calender page is displayed
+
+
+
