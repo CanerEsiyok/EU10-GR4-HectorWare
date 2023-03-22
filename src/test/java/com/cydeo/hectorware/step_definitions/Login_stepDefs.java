@@ -29,4 +29,20 @@ public class Login_stepDefs {
     public void user_sees_the_dashboard() {
         Assert.assertTrue(Driver.getDriver().getTitle().equals("Files - Hectorware - QA"));
     }
+
+    @Then("user can not see the dashboard")
+    public void userCanNotSeeTheDashboard() {
+
+        Assert.assertTrue(!Driver.getDriver().getTitle().equals("Files - Hectorware - QA"));
+    }
+
+    @When("user don't enter any username")
+    public void userDonTEnterAnyUsername() {
+        loginPage.inputUsername.sendKeys("");
+    }
+
+    @And("user don't enter any password")
+    public void userDonTEnterAnyPassword() {
+        loginPage.inputPassword.sendKeys("");
+    }
 }
