@@ -15,5 +15,15 @@ public class CalendarPage_Turkan extends DashboardPage {
     @FindBy(xpath="//span[.='Day']")
     public WebElement dayOption;
 
+    @FindBy(xpath = "//span[.='Week']")
+    public WebElement weekOption;
+
+    @FindBy(xpath="//span[.='Month']")
+    public WebElement monthOption;
+
+
+
+
+
 
 }

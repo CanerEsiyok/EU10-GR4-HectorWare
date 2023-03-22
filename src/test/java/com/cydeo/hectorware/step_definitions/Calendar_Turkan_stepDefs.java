@@ -47,6 +47,34 @@ public class Calendar_Turkan_stepDefs {
         Assert.assertTrue(actualUrl.contains(expectedUrl));
     }
 
+    @Then("the user selects week option")
+    public void the_user_selects_week_option() {
+        calendarPage_turkan.weekOption.click();
+    }
+
+    @Then("weekly calender page is displayed")
+    public void weekly_calender_page_is_displayed() {
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "timeGridWeek";
+        Assert.assertTrue(actualUrl.contains(expectedUrl));
+
+    }
+
+    @Then("the user selects month option")
+    public void the_user_selects_month_option() {
+        calendarPage_turkan.monthOption.click();
+
+
+    }
+
+
+    @Then("monthly calender page is displayed")
+    public void monthly_calender_page_is_displayed() {
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl= "dayGridMonth";
+        Assert.assertTrue(actualUrl.contains(expectedUrl));
+    }
+
 
 
 }
