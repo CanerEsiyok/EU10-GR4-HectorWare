@@ -16,7 +16,7 @@ public class LogoutPage {
     @FindBy(id="expanddiv")
     public WebElement settingsMenu;
 
-    @FindBy(id="logout")
+    @FindBy(xpath="//*[@data-id='logout']")
     public WebElement logOutButton;
 
 }
