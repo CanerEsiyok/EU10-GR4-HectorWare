@@ -1,6 +1,6 @@
-Feature:Logout Functionality
+Feature:Login function Hectorware
 
-@wip
+
   Scenario: Logout successfully
     Given user is on the home page
     When user clicks on the profile settings icon
