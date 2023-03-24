@@ -29,10 +29,9 @@ logOutPage.logOutButton.click();
     }
     @Then("user sees the login page")
     public void user_sees_the_login_page() {
-      /*  String actualLoginButtonText=loginPage.submitButton.getText();
+       String actualLoginButtonText=loginPage.submitButton.getText();
         String expectedLoginButtonText="Log in";
-      Assert.assertEquals(expectedLoginButtonText,actualLoginButtonText);*/
-        Assert.assertTrue(Driver.getDriver().getTitle().equals("\n" +
-                "\t\tHectorware - QA\t\t"));
+      Assert.assertEquals(expectedLoginButtonText,actualLoginButtonText);
+
     }
 }
