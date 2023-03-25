@@ -15,6 +15,12 @@ public class LogOutPage {
     @FindBy(xpath = "//*[@data-id='logout']")
     public WebElement logOutButton;
 
+    @FindBy(id = "submit-form")
+    public WebElement loginButton;
+
     @FindBy(id = "expanddiv")
     public WebElement settingsDropbox;
+
+    @FindBy(xpath = "//*[@name='login']")
+    public WebElement loginForm;
 }

@@ -13,7 +13,6 @@ Background:
 
 
 
-  @profile
  Scenario: User can change any info under the Profile module
    And  user should see the full name"Employee300"
    And  user enters phone number 412458546
