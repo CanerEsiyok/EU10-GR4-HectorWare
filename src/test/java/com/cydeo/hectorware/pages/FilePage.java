@@ -13,6 +13,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -71,6 +73,8 @@ public class FilePage {
     public WebElement plusSign;
     @FindBy(xpath = "//label[@data-action='upload']")
     public WebElement uploadAFile;
+    @FindBy(xpath = "//input[@type='file']")
+    public WebElement uploadAFileInput;
     @FindBy(xpath = "(//span[@class='displayname'])[2]")
     public WebElement newFolder;
     @FindBy(xpath = "(//span[@class='displayname'])[3]")
@@ -113,17 +117,27 @@ public class FilePage {
     }
 
 
-    public void findAndSendKeys(String element, String keys) {
+    public void findAndSendKeys(String element, String keys) throws AWTException {
         switch (element) {
             case "Input New Folder":
                 createAFolderInput.sendKeys(keys);
                 break;
             case "upload file":
                 uploadAFile.sendKeys(keys);
+                System.out.println("gondermeye calisti");
+                break;
+            case "upload file input":
+                uploadAFileInput.sendKeys(keys);
+                System.out.println("gondermeye calisti");
                 break;
 
 
         }
+        Robot robot = new Robot();
+        BrowserUtils.sleep(3);
+        robot.setAutoDelay(100);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
 
 
     }
@@ -247,6 +261,9 @@ public class FilePage {
                 break;
             case "upload file":
                 uploadAFile.click();
+                break;
+            case "upload file input":
+                uploadAFileInput.click();
                 break;
             case "Move or copy":
                 moveOrCopy.click();

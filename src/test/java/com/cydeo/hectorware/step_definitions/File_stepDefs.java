@@ -72,16 +72,17 @@ public class File_stepDefs {
     }
 
     @Then("Send the files to {string}")
-    public void send_the_files_to(String string, List<String> liste) {
+    public void send_the_files_to(String string, List<String> liste) throws AWTException {
         BrowserUtils.sleep(1);
-
+        BrowserUtils.sleep(1);
 
         for (String elmnt : liste) {
             System.out.println(elmnt);
             filePage.findAndSendKeys(string, elmnt);
-            BrowserUtils.sleep(5);
+            BrowserUtils.sleep(1);
+            System.out.println("gonderdi");
         }
-
+        BrowserUtils.sleep(3);
 
     }
 
@@ -132,6 +133,7 @@ public class File_stepDefs {
     public void user_selects_the_file_named(String string) {
         filePage.selectIfTheFileExist(string);
     }
+
     @Then("Verify the file named {string} is not in the folder")
     public void verify_the_file_named_is_not_in_the_folder(String string) {
         filePage.refreshLists("file");
@@ -146,10 +148,20 @@ public class File_stepDefs {
         Assert.assertTrue(filePage.checkIfTheFileExist(string));
     }
 
+    @Then("Verify the files is in the folder")
+    public void verify_the_files_is_in_the_folder(List<String> liste) {
+        filePage.refreshLists("file");
+
+        for (String element : liste) {
+            Assert.assertTrue(("file not found: "+element),filePage.checkIfTheFileExist(element));
+        }
+
+    }
+
 
     @Then("User drags the file named {string} to {string}")
-    public void user_drags_the_file_named_to(String string,String string2) {
-        filePage.dragDrop(string,string2);
+    public void user_drags_the_file_named_to(String string, String string2) {
+        filePage.dragDrop(string, string2);
 
     }
 
