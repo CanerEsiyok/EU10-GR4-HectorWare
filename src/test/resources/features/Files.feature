@@ -1,4 +1,4 @@
-@files
+@HECWA10-50
 Feature: File functionality
 
   Background:
