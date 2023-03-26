@@ -1,4 +1,4 @@
-@HECWA10-50
+@HECWA10-41
 Feature: File functionality
 
   Background:
@@ -11,13 +11,13 @@ Feature: File functionality
     Then User clicks on folder "us move copy delete"
     Then User clicks on "plus sign"
     Then Send the files to "upload file input"
-      | D:\deneme\sample1.txt |
-      | D:\deneme\sample2.txt |
-      | D:\deneme\sample3.txt |
-      | D:\deneme\sample4.txt |
-      | D:\deneme\sample5.txt |
-      | D:\deneme\sample6.txt |
-      | D:\deneme\sample7.txt |
+      |/Users/mac/sample1.txt |
+      |/Users/mac/sample2.txt |
+      |/Users/mac/sample3.txt |
+      |/Users/mac/sample4.txt |
+      |/Users/mac/sample5.txt |
+      |/Users/mac/sample6.txt |
+      |/Users/mac/sample7.txt |
 
     Then Verify the files is in the folder
       | sample1.txt |
