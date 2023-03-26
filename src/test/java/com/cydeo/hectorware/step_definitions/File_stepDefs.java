@@ -74,59 +74,15 @@ public class File_stepDefs {
     @Then("Send the files to {string}")
     public void send_the_files_to(String string, List<String> liste) throws AWTException {
         BrowserUtils.sleep(1);
-        BrowserUtils.sleep(1);
 
         for (String elmnt : liste) {
             System.out.println(elmnt);
             filePage.findAndSendKeys(string, elmnt);
             BrowserUtils.sleep(1);
-            System.out.println("gonderdi");
         }
-        BrowserUtils.sleep(3);
 
     }
 
-    @Then("User select files with robot")
-    public void user_select_files_with_robot() throws AWTException {
-        Robot robot = new Robot();
-        BrowserUtils.sleep(3);
-        robot.setAutoDelay(100);
-        // Type the file path character by character
-        robot.keyPress(KeyEvent.VK_D);
-        BrowserUtils.sleep(3);
-        robot.keyPress(KeyEvent.VK_SHIFT);
-        BrowserUtils.sleep(3);
-        robot.keyPress(KeyEvent.VK_PERIOD);
-        BrowserUtils.sleep(3);
-        robot.keyRelease(KeyEvent.VK_SHIFT);
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_ALT);
-
-        robot.keyPress(KeyEvent.getExtendedKeyCodeForChar('ß'));
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyRelease(KeyEvent.VK_ALT);
-        robot.keyPress(KeyEvent.VK_D);
-        robot.keyPress(KeyEvent.VK_E);
-        robot.keyPress(KeyEvent.VK_N);
-        robot.keyPress(KeyEvent.VK_E);
-        robot.keyPress(KeyEvent.VK_M);
-        robot.keyPress(KeyEvent.VK_E);
-        robot.keyPress(KeyEvent.VK_BACK_SLASH);
-        robot.keyPress(KeyEvent.VK_S);
-        robot.keyPress(KeyEvent.VK_A);
-        robot.keyPress(KeyEvent.VK_M);
-        robot.keyPress(KeyEvent.VK_P);
-        robot.keyPress(KeyEvent.VK_L);
-        robot.keyPress(KeyEvent.VK_E);
-        robot.keyPress(KeyEvent.VK_1);
-        robot.keyPress(KeyEvent.VK_PERIOD);
-        robot.keyPress(KeyEvent.VK_T);
-        robot.keyPress(KeyEvent.VK_X);
-        robot.keyPress(KeyEvent.VK_T);
-        // Simulate a key press of the Enter key to confirm the file selection
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-    }
 
 
     @When("User selects the file named {string}")

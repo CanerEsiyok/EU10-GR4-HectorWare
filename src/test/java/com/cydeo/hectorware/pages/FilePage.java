@@ -23,6 +23,7 @@ public class FilePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    //LISTS
     @FindBy(xpath = "//ul[@class='with-icon']/li/a")
     public List<WebElement> leftMenu;
     @FindBy(xpath = "//tbody[@id='fileList']/tr[@data-type='file']")
@@ -107,10 +108,6 @@ public class FilePage {
     public WebElement copyFolder;
 
 
-    WebElement myElement;
-    List<WebElement> myElements;
-
-
     public void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].scrollIntoView();", element);
@@ -124,22 +121,13 @@ public class FilePage {
                 break;
             case "upload file":
                 uploadAFile.sendKeys(keys);
-                System.out.println("gondermeye calisti");
                 break;
             case "upload file input":
                 uploadAFileInput.sendKeys(keys);
-                System.out.println("gondermeye calisti");
                 break;
 
 
         }
-        Robot robot = new Robot();
-        BrowserUtils.sleep(3);
-        robot.setAutoDelay(100);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-
-
     }
 
     public boolean checkIfTheFolderExist(String folder) {
@@ -164,7 +152,6 @@ public class FilePage {
         for (int i = 0; i < fileFolderList.size(); i++) {
             if (fileFolderList.get(i).getAttribute("data-file").equals(file)) {
 
-                System.out.println("buldu");
                 return true;
 
 
@@ -180,11 +167,9 @@ public class FilePage {
         for (int i = 0; i < fileFolderList.size(); i++) {
             if (fileFolderList.get(i).getAttribute("data-file").equals(file)) {
 
-                System.out.println("buldu");
                 WebElement foundElement = fileFolderList.get(i).findElement(By.xpath("./child::td/label"));
                 foundElement.click();
-                BrowserUtils.sleep(2);
-                // }
+                BrowserUtils.sleep(1);
 
 
             }
@@ -218,7 +203,7 @@ public class FilePage {
 
                 // WebElement foundElement = fileFolderList.get(i).findElement(By.xpath("./child::td/label"));
                 actions.contextClick(fileFolderList.get(i)).perform();
-                BrowserUtils.sleep(2);
+                BrowserUtils.sleep(1);
                 // }
 
 
@@ -327,7 +312,6 @@ public class FilePage {
 
         for (int i = 0; i < fileFolderList.size(); i++) {
             if (fileFolderList.get(i).getAttribute("data-file").equals(file)) {
-                System.out.println("dosyayi buldu");
                 Actions act = new Actions(Driver.getDriver());
 
                 //Dragged and dropped.
@@ -335,12 +319,7 @@ public class FilePage {
                 System.out.println(fileFolderList.get(i).findElement(By.xpath("./child::td[@class='filename ui-draggable ui-draggable-handle']")).getText());
 
 
-                act.clickAndHold(fileFolderList.get(i).findElement(By.xpath("./child::td[@class='filename ui-draggable ui-draggable-handle']")))
-                        .pause(2000)
-                        .moveToElement(Driver.getDriver().findElement(By.xpath("//tbody[@id='fileList']/tr[@data-file='move folder']")))
-                        .pause(2000)
-                        .release()
-                        .perform();
+                act.clickAndHold(fileFolderList.get(i).findElement(By.xpath("./child::td[@class='filename ui-draggable ui-draggable-handle']"))).pause(2000).moveToElement(Driver.getDriver().findElement(By.xpath("//tbody[@id='fileList']/tr[@data-file='move folder']"))).pause(2000).release().perform();
 
 
             }
