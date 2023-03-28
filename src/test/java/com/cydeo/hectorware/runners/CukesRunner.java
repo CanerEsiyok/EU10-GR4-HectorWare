@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/cydeo/hectorware/step_definitions",
         dryRun = false,
-        tags = "@profile",
+        tags = "@wip",
         publish = true
 )
 public class CukesRunner {
