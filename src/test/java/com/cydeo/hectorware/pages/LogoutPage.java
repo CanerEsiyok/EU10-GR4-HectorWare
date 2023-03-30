@@ -5,18 +5,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LogoutPage {
-    public LogoutPage() {
+public class LogOutPage {
+    public LogOutPage() {
         PageFactory.initElements(Driver.getDriver(),this);
-
     }
+    @FindBy(id = "settings")
+    public WebElement profileSettingsIcon;
 
-    @FindBy(id="settings")
-    public WebElement profileSettingButton;
-    @FindBy(id="expanddiv")
-    public WebElement settingsMenu;
-
-    @FindBy(xpath="//*[@data-id='logout']")
+    @FindBy(xpath = "//*[@data-id='logout']")
     public WebElement logOutButton;
 
+    @FindBy(id = "submit-form")
+    public WebElement loginButton;
+
+    @FindBy(id = "expanddiv")
+    public WebElement settingsDropbox;
+
+    @FindBy(xpath = "//*[@name='login']")
+    public WebElement loginForm;
 }
