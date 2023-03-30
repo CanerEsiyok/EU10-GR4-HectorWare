@@ -17,6 +17,9 @@ public class LogOut_StepDefs {
         loginPage.login("Employee1", "Employee123");
     }
 
+
+
+
     @When("User hoverover on the profile icon")
     public void user_hoverover_on_the_profile_icon() {
         Actions actions = new Actions(Driver.getDriver());
