@@ -57,16 +57,13 @@ public class Calendar_Turkan_stepDefs {
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = "timeGridWeek";
         Assert.assertTrue(actualUrl.contains(expectedUrl));
-
     }
 
     @Then("the user selects month option")
     public void the_user_selects_month_option() {
         calendarPage_turkan.monthOption.click();
 
-
     }
-
 
     @Then("monthly calender page is displayed")
     public void monthly_calender_page_is_displayed() {
@@ -75,6 +72,53 @@ public class Calendar_Turkan_stepDefs {
         Assert.assertTrue(actualUrl.contains(expectedUrl));
     }
 
+// _______________________________________________________--
+
+    @Then("the user selects start time {int} AM")
+    public void the_user_selects_start_time_am(Integer int1) {
+
+        //calendarPage_turkan.timeOption10AM.click();
+
+        calendarPage_turkan.selectHour(10).click();
+
+    }
 
 
+  /*  @Then("the user selects event title {string}")
+    public void the_user_selects_event_title(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the user clicks on the arrow button")
+    public void the_user_clicks_on_the_arrow_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the user enters location {string}")
+    public void the_user_enters_location(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the user enters {string} as description")
+    public void the_user_enters_as_description(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the user selects {string}")
+    public void the_user_selects(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the user clicks on the save button")
+    public void the_user_clicks_on_the_save_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the new event is displayed")
+    public void the_new_event_is_displayed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+*/
 }
