@@ -10,7 +10,6 @@ public class LogoutPage {
         PageFactory.initElements(Driver.getDriver(),this);
 
     }
-
     @FindBy(id="settings")
     public WebElement profileSettingButton;
     @FindBy(id="expanddiv")
@@ -18,5 +17,4 @@ public class LogoutPage {
 
     @FindBy(xpath="//*[@data-id='logout']")
     public WebElement logOutButton;
-
 }
