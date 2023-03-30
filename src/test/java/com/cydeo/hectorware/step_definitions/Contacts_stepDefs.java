@@ -196,7 +196,7 @@ public class Contacts_stepDefs {
     public void theContactShouldNOTBeAvailableOnTheContactsList(String contactsName) {
 
         List<String> allContacts = BrowserUtils.returnWebElementsText(contactsPage.allContacts);
-        Assert.assertTrue(allContacts.contains(contactsName));
+        Assert.assertFalse(allContacts.contains(contactsName));
 
     }
 }
