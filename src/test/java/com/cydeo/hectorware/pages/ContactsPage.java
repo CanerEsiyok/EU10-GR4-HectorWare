@@ -55,4 +55,12 @@ public class ContactsPage extends DashboardPage {
     public List<WebElement> allContacts;
 
 
+    @FindBy (xpath = "//div[@class='action-item header-menu']//button")
+    public WebElement threeDots;
+
+//    @FindBy (xpath = "//div[@class='property property--last property-tel']//span[@class='action-button__text'][normalize-space()='Delete']")
+    @FindBy (xpath = "(//button[@class='action-button focusable'])[6]")
+    public WebElement deleteButton;
+
+
 }

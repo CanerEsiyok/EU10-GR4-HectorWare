@@ -3,10 +3,14 @@ package com.cydeo.hectorware.step_definitions;
 import com.cydeo.hectorware.pages.ContactsPage;
 import com.cydeo.hectorware.pages.DashboardPage;
 import com.cydeo.hectorware.pages.LoginPage;
+import com.cydeo.hectorware.utilities.BrowserUtils;
+import com.cydeo.hectorware.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -149,11 +153,7 @@ public class Contacts_stepDefs {
 
         contactsPage.getContactsModule("All contacts").click();
 
-        List<String> allContacts = new ArrayList<>();
-
-        for (WebElement eachContact : contactsPage.allContacts) {
-            allContacts.add(eachContact.getText());
-        }
+        List<String> allContacts = BrowserUtils.returnWebElementsText(contactsPage.allContacts);
 
         Assert.assertTrue(allContacts.contains(newContactName));
 
@@ -176,7 +176,28 @@ public class Contacts_stepDefs {
     }
 
 
+    @And("the user clicks on the three dots on the right side of the page and clicks delete option")
+    public void theUserClicksOnTheThreeDotsOnTheRightSideOfThePageAndClicksDeleteOption() {
+
+        contactsPage.threeDots.click();
+        try {
+            contactsPage.deleteButton.click();
+        } catch (ElementNotInteractableException e) {
+
+            BrowserUtils.waitForTheVisibilityOfElement(contactsPage.deleteButton);
+            contactsPage.deleteButton.click();
+
+        }
 
 
+    }
 
+    @Then("the {string} contact should NOT be available on the contacts list")
+    public void theContactShouldNOTBeAvailableOnTheContactsList(String contactsName) {
+
+        List<String> allContacts = BrowserUtils.returnWebElementsText(contactsPage.allContacts);
+        Assert.assertFalse(allContacts.contains(contactsName));
+        System.out.println(allContacts);
+
+    }
 }

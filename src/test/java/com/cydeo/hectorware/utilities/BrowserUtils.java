@@ -1,9 +1,12 @@
 package com.cydeo.hectorware.utilities;
 
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +50,30 @@ public class BrowserUtils {
         return result;
     }
 
+    /**
+     * this method accepts a list of web elements and converts it to a list of string
+     * @param webElements
+     * @return List<String>
+     */
+    public static List<String> returnWebElementsText (List <WebElement> webElements) {
+        List<String> texts = new ArrayList<>();
 
+        for (WebElement webElement : webElements) {
+            texts.add(webElement.getText());
+        }
+
+        return texts;
+    }
+
+    public static void waitForTheVisibilityOfElement (WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static void scrollWithJS () {
+        JavascriptExecutor jse = (JavascriptExecutor)Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,250)");
+    }
 
 
 }

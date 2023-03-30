@@ -2,7 +2,7 @@ Feature: Contacts functionality
 
   Background:
     Given the user is on the "contacts" page
-
+  @HECWA10-130
   Scenario: As a user, I should be able to create a new contact so that I can communicate with
     When the user clicks on the "New contact" button
     And the user enters the username "Steve Jobs"
@@ -18,7 +18,6 @@ Feature: Contacts functionality
     Then the "Steve Jobs" contact should be created under the list of contacts
 
 
-  @contacts
   Scenario: As a user, I should be able to edit any contact so that I can communicate with
     When the user clicks on "Sara Becker" in the contacts list
     And the user enters the username "Henry Ford"
@@ -32,3 +31,12 @@ Feature: Contacts functionality
     And the user enters state or province "New York"
     And the user enters country "United States"
     Then the "Henry Ford" contact should be created under the list of contacts
+
+  @contacts
+  Scenario: As a user I should be able to delete a contact
+    When the user clicks on the "All contacts" button
+    And the user clicks on "Sara Becker" in the contacts list
+    And the user clicks on the three dots on the right side of the page and clicks delete option
+    Then the "Sara Becker" contact should NOT be available on the contacts list
+
+
