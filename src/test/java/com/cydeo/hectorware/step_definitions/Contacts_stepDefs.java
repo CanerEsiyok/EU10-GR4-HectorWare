@@ -197,6 +197,7 @@ public class Contacts_stepDefs {
 
         List<String> allContacts = BrowserUtils.returnWebElementsText(contactsPage.allContacts);
         Assert.assertFalse(allContacts.contains(contactsName));
+        System.out.println(allContacts);
 
     }
 }
