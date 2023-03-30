@@ -1,9 +1,12 @@
 package com.cydeo.hectorware.pages;
 
 import com.cydeo.hectorware.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class TalkModulePage {
     public TalkModulePage(){
@@ -28,4 +31,26 @@ public class TalkModulePage {
     public WebElement createConvo;
     @FindBy(xpath = "//div[.='You created the conversation']")
     public WebElement convoVerification;
+    @FindBy(xpath = "//ul[@class='conversations']/li[1]")
+    public WebElement conversation;
+    @FindBy(xpath = "//main[@id='app-content-vue']/div/div/div/div/div/button")
+    public WebElement threeDots;
+    @FindBy(xpath = "//span[contains(text(),'Rename conversation')]")
+    public WebElement renameConvoButton;
+    @FindBy(xpath = "//input[@class='app-sidebar-header__maintitle-input']")
+    public WebElement nameHolder;
+    @FindBy(xpath = "(//span[contains(text(),'ChangedConversation')])[1]")
+    public WebElement verifyNameChange;
+    public WebElement conversationThreeDots(String convoName){
+       return Driver.getDriver().findElement(By.xpath("(//span[contains(text(),'"+convoName+"')])[1]/../../../following-sibling::div//button"));
+    }
+
+    @FindBy(xpath = "//span[text()='Delete conversation']")
+    public WebElement deleteConversationButton;
+    @FindBy(xpath = "//button[text()='Yes']")
+    public WebElement yesButton;
+
+    public List<WebElement> verifyTitleIsNotListed(){
+        return Driver.getDriver().findElements(By.xpath("//ul[@class='conversations']/li//span[@class='acli__content__line-one__title']"));
+    }
 }
