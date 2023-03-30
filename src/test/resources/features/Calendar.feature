@@ -3,7 +3,7 @@ Feature: As a user, I should be able to select the date I want on the calendar w
   Background: user is logged in the application
     Given user is logged in the application
 
-    @calendar
+    @calendar @smoke
   Scenario: User should be able to click on the outlook dropdown.
     When User clicks on the calendar module.
     And User clicks on the outlook dropdown.

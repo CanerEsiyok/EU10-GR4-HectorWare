@@ -1,6 +1,6 @@
 Feature:Logout function Hectorware
 
-
+  @smoke
   Scenario:Logout successfully
     Given User has already logged in
     When User clicks on the profile icon

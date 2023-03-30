@@ -14,7 +14,7 @@ Feature: Calendar functionality
       Then the user clicks on the grid tab
       And the user selects day option
       Then daily calender page is displayed
-
+  @smoke
   Scenario: Verify changing the calendar view by week
     When the user clicks on the calendar tab
     Then the user clicks on the grid tab

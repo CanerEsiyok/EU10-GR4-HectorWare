@@ -1,5 +1,6 @@
-Feature:Login function Hectorware
 
+Feature:Login function Hectorware
+  @smoke
   Scenario: Login with valid credentials
     Given user is on the login page
     When user enters "Employee1" username

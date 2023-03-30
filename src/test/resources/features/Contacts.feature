@@ -2,7 +2,7 @@ Feature: Contacts functionality
 
   Background:
     Given the user is on the "contacts" page
-  @HECWA10-130
+  @HECWA10-130 @smoke
   Scenario: As a user, I should be able to create a new contact so that I can communicate with
     When the user clicks on the "New contact" button
     And the user enters the username "Steve Jobs"

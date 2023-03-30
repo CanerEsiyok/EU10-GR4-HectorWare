@@ -11,7 +11,7 @@ Feature: Default
 	#AC:1
 	#
 	#User should be able to see all conversation lists under the Talk module
-  @HECWA10-18
+  @HECWA10-18 @smoke
   Scenario: Display all conversation lists under the Talk module
     When user clicks the talk icon on the top left of the page
     Then user verifies the conversations are listed on the left side of the page
