@@ -1,5 +1,7 @@
 package com.cydeo.hectorware.pages;
 
+import com.cydeo.hectorware.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,6 +22,20 @@ public class CalendarPage_Turkan extends DashboardPage {
 
     @FindBy(xpath="//span[.='Month']")
     public WebElement monthOption;
+
+    public WebElement selectHour (int hour) {
+
+        String xpath = "//table//td[.='" +hour+"']/following-sibling::td[1]";
+       return Driver.getDriver().findElement(By.xpath(xpath));
+    }
+
+    @FindBy (xpath="//input[@placeholder='Event title']")
+    public WebElement eventTitle;
+
+
+
+
+
 
 
 
