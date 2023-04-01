@@ -2,10 +2,15 @@ package com.cydeo.hectorware.step_definitions;
 
 import com.cydeo.hectorware.pages.CalendarPage_Turkan;
 import com.cydeo.hectorware.pages.DashboardPage;
+import com.cydeo.hectorware.utilities.BrowserUtils;
 import com.cydeo.hectorware.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
+import java.util.concurrent.TimeUnit;
 
 public class Calendar_Turkan_stepDefs {
 
@@ -72,38 +77,52 @@ public class Calendar_Turkan_stepDefs {
         Assert.assertTrue(actualUrl.contains(expectedUrl));
     }
 
-// _______________________________________________________--
 
     @Then("the user selects start time {int} AM")
     public void the_user_selects_start_time_am(Integer int1) {
 
-        //calendarPage_turkan.timeOption10AM.click();
+        calendarPage_turkan.selectHour(int1).click();
 
-        calendarPage_turkan.selectHour(10).click();
+    }
+
+    @Then("the user enters {string} on the event title")
+    public void the_user_enters_on_the_event_title(String event) {
+
+        calendarPage_turkan.eventTitle.sendKeys(event);
 
     }
 
 
-  /*  @Then("the user selects event title {string}")
-    public void the_user_selects_event_title(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @Then("the user clicks on the arrow button")
-    public void the_user_clicks_on_the_arrow_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @Then("the user enters location {string}")
-    public void the_user_enters_location(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("the user enters {string} as location")
+    public void the_user_enters_as_location(String string) {
+        calendarPage_turkan.addLocation.sendKeys(string);
     }
     @Then("the user enters {string} as description")
     public void the_user_enters_as_description(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        calendarPage_turkan.addDescription.sendKeys(string);
     }
+
+
+    @Then("the user clicks on save button")
+    public void the_user_clicks_on_save_button() {
+
+        BrowserUtils.scrollWithJS();
+
+        BrowserUtils.clickWithJS(calendarPage_turkan.saveButton);
+
+    }
+
+
+
+
+
+
+
+
+
+
+  /*
+
     @Then("the user selects {string}")
     public void the_user_selects(String string) {
         // Write code here that turns the phrase above into concrete actions
